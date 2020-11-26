@@ -1,0 +1,24 @@
+﻿@using System.Text
+@model WebClient.Models.User
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="container" style="display: block">
+    <form asp-controller="Api" asp-action="Index" class="login-form" method="post">
+        <p class="login-text">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fas fa-lock fa-stack-1x"></i>
+            </span>
+        </p>
+        <input asp-for="Id" value=@Model.Id hidden/>
+        <label asp-for="Token" class="form-control-plaintext">This is your user-generated token (save it):</label>
+        <input value="@Model.Token" asp-for="Token" type="text" class="login-username" autofocus required placeholder="Token" />
+        <input type="submit" name="Login" value="Login" class="rounded-circle login-submit" />
+    </form>
+    <div class="underlay-photo"></div>
+    <div class="underlay-black"></div>
+</div>

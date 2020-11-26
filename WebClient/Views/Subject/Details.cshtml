@@ -1,0 +1,54 @@
+﻿@model WebClient.Models.Lendet
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Details of<small class="text-muted"> @Model.Emri </small></h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Emri)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Emri)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DrejtimiId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DrejtimiId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProfesoriId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProfesoriId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Profesori)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Profesori)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Provimets)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Provimets)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    <a asp-action="Index">Back to List</a>
+</div>

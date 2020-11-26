@@ -1,0 +1,44 @@
+﻿@model WebClient.Models.ProvimetStudenteve
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Register<small class="text-muted"> a new exam of a student</small></h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label><br/>
+                @Html.DropDownList("StudentId", new SelectList(ViewBag.Students,
+                    "Id", "FullName"),
+                    new { @class = "btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" })
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProvimId" class="control-label"></label>
+                @Html.DropDownList("ProvimId", new SelectList(ViewBag.Exams,
+                    "Id", "ExamIdDate"),
+                    new { @class = "btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" })
+                <span asp-validation-for="ProvimId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Piket" class="control-label"></label>
+                <input asp-for="Piket" class="btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded"/>
+                <span asp-validation-for="Piket" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

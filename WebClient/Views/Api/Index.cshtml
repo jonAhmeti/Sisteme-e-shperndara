@@ -1,0 +1,17 @@
+﻿@model WebClient.Models.User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "IndexLayout";
+}
+<main>
+    <ol class="gradient-list">
+        <li>@Html.ActionLink("Api - Studentet CRUD", "Index", "Student", new { token = Model.Token })</li>
+        <li>@Html.ActionLink("Api - Lëndët CRUD", "Index", "Subject", new { token = Model.Token })</li>
+        <li>@Html.ActionLink("Api - Profesoret CRUD", "Index", "Professor", new { token = Model.Token })</li>
+        <li>@Html.ActionLink("Api - Provimet CRUD", "Index", "Exam", new { token = Model.Token })</li>
+        <li>@Html.ActionLink("Api - Provimet e Studentëve CRUD", "Index", "StudentExam", new { token = Model.Token })</li>
+        <li>@Html.ActionLink("Api - Drejtimet CRUD", "Index", "Branch", new { token = Model.Token })</li>
+    </ol>
+</main>
+
+

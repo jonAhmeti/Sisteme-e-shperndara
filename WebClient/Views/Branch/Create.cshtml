@@ -1,0 +1,35 @@
+﻿@model WebClient.Models.Drejtimet
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Create<small class="text-muted"> Branches</small></h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Emri" class="control-label"></label>
+                <input asp-for="Emri" class="btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" />
+                <span asp-validation-for="Emri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Komenti" class="control-label"></label>
+                <input asp-for="Komenti" class="btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" />
+                <span asp-validation-for="Komenti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

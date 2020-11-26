@@ -1,0 +1,36 @@
+﻿@model WebClient.Models.Provimet
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Create<small class="text-muted"> a new exam</small></h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LendaId" class="control-label"></label>
+                @Html.DropDownList("LendaId", new SelectList(ViewBag.Subjects,
+                    "Id", "Emri"),
+                    new { @class = "btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" })
+                <span asp-validation-for="LendaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" type="datetime-local" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

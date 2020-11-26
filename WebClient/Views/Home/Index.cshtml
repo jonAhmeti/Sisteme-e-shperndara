@@ -1,0 +1,22 @@
+﻿@model WebClient.Models.User
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="container" style="display: block">
+    <form asp-action="IndexToken" class="login-form" method="post">
+        <p class="login-text">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fas fa-lock fa-stack-1x"></i>
+            </span>
+        </p>
+        <input asp-for="Username" type="text" class="login-username" autofocus="true" required="true" placeholder="Username" />
+        <input asp-for="Password" type="password" class="login-password form-control-lg" required="true" placeholder="Password" />
+        <input type="submit" name="Login" value="Login" class="rounded-circle login-submit" />
+    </form>
+    <div class="underlay-photo"></div>
+    <div class="underlay-black"></div>
+</div>

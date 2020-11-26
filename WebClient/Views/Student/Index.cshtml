@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebClient.Models.Studentet>
+
+@{
+    ViewData["Title"] = "GetAllStudents";
+    Layout = "_Layout";
+}
+
+<h3>List of Students</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { token = ViewBag.Token })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mbiemri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataLindjes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrejtimiId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusiId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mbiemri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLindjes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrejtimiId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusiId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.Id, token = ViewBag.Token}) |<br/>
+                @Html.ActionLink("Details", "Details", item) |<br/>
+                @Html.ActionLink("Delete", "Delete",new {id = item.Id, token = ViewBag.Token})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

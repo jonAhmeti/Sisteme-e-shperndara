@@ -1,0 +1,51 @@
+﻿@model WebClient.Models.ProvimetStudenteve
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Edit<small class="text-muted"> exam of @ViewBag.Student.FullName</small></h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPut">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label" hidden></label>
+                <input asp-for="Id" class="form-control" hidden/>
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                @Html.DropDownList("StudentId", new SelectList(ViewBag.Students,
+                    "Id", "FullName"),
+                    new { @class = "btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" })
+
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProvimId" class="control-label"></label>
+                @Html.DropDownList("ProvimId", new SelectList(ViewBag.Exams,
+                    "Id", "ExamIdDate"),
+                    new { @class = "btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" })
+
+                <span asp-validation-for="ProvimId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Piket" class="control-label"></label>
+                <input asp-for="Piket" class="btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded"/>
+                <span asp-validation-for="Piket" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

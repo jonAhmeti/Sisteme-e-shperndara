@@ -1,0 +1,70 @@
+﻿@model WebClient.Models.Studentet
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Edit<small class="text-muted"> @ViewData.Model.Emri @Model.Mbiemri</small></h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPut">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label" hidden></label>
+                <input asp-for="Id" class="form-control" hidden />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateDate" class="control-label" hidden></label>
+                <input asp-for="CreateDate" class="form-control" hidden />
+                <span asp-validation-for="CreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdateDate" class="control-label" hidden></label>
+                <input asp-for="UpdateDate" class="form-control" hidden />
+                <span asp-validation-for="UpdateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Emri" class="control-label"></label>
+                <input asp-for="Emri" class="btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" />
+                <span asp-validation-for="Emri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mbiemri" class="control-label"></label>
+                <input asp-for="Mbiemri" class="btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" />
+                <span asp-validation-for="Mbiemri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataLindjes" class="control-label"></label>
+                <input asp-for="DataLindjes" class="btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" type="datetime-local"/>
+                <span asp-validation-for="DataLindjes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrejtimiId" class="control-label"></label>
+                @Html.DropDownList("DrejtimiId", new SelectList(ViewBag.Branches,
+                    "Id", "Emri"),
+                    new { @class = "btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" })
+
+                <span asp-validation-for="DrejtimiId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusiId" class="control-label"></label>
+                @Html.DropDownList("StatusiId", new SelectList(ViewBag.Statuses,
+                    "Id", "Name"),
+                    new { @class = "btn btn-default btn-toggle form-control shadow-sm mb-5 bg-white rounded" })
+                <span asp-validation-for="StatusiId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
